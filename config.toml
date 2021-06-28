@@ -1,0 +1,15 @@
+title = "Example website"
+urls = ["gemini://example.com"]
+
+[feeds]
+"/" = "Example feed"
+
+[permalinks]
+"/" = "/{{ .Date.Format `2006/01/02` }}/{{ path.Base .Permalink }}/"
+
+[[tasks]]
+input = [".gmi"]
+output = ".gmi"
+template = ".gmi"
+static_dir = "static"
+output_dir = "public"

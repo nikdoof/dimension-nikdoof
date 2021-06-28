@@ -1,0 +1,23 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to target system
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.TARGET_HOST }}
+          username: ${{ secrets.DEPLOYMENT_USER }}
+          key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
+          port: 22
+          script: |
+            cd ~/src/dimension-nikdoof
+            sudo git config pull.ff only
+            sudo git reset --hard
+            sudo git pull
