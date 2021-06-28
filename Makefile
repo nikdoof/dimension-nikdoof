@@ -15,3 +15,4 @@ clean:
 .PHONY: build
 build:
 	${HOME}/bin/kiln build
+	cp -R public/* $(DESTDIR)/
