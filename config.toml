@@ -1,11 +1,11 @@
-title = "Example website"
-urls = ["gemini://example.com"]
+title = "nikdoof's gemlog"
+urls = ["gemini://dimension.sh/~nikdoof"]
 
 [feeds]
-"/" = "Example feed"
+"/logs/" = "nikdoof's gemlog"
 
 [permalinks]
-"/" = "/{{ .Date.Format `2006/01/02` }}/{{ path.Base .Permalink }}/"
+"/logs/" = "/logs/{{ .Date.Format `2006/01/02` }}/{{ path.Base .Permalink }}/"
 
 [[tasks]]
 input = [".gmi"]

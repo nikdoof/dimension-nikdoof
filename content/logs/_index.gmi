@@ -1,0 +1,5 @@
+---
+title: logs
+---
+
+The inane ramblings of nikdoof, sysop of dimension.sh.

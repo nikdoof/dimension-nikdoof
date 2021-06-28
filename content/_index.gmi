@@ -1,3 +1,5 @@
 ---
-title: Hello, world!
+title: nikdoof's capsule
 ---
+
+=> /logs/ Logs
