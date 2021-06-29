@@ -17,5 +17,6 @@ jobs:
           key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
           port: 22
           script: |
+            export PATH=~/bin:~/go/bin:$PATH
             cd ~/src/dimension-nikdoof
             make
