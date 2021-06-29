@@ -18,6 +18,4 @@ jobs:
           port: 22
           script: |
             cd ~/src/dimension-nikdoof
-            sudo git config pull.ff only
-            sudo git reset --hard
-            sudo git pull
+            make
