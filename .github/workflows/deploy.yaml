@@ -18,5 +18,6 @@ jobs:
           port: 22
           script: |
             export PATH=~/bin:~/go/bin:$PATH
+            umask 022
             cd ~/src/dimension-nikdoof
             make
