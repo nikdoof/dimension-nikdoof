@@ -9,15 +9,12 @@ jobs:
     environment: production
     runs-on: ubuntu-latest
     steps:
-      - name: Setup ssh-agent
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
       - name: Deploy to target system
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.TARGET_HOST }}
           username: ${{ secrets.DEPLOYMENT_USER }}
+          key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
           port: 22
           script: |
             export PATH=~/bin:~/go/bin:$PATH
