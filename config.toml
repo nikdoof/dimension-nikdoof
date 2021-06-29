@@ -1,8 +1,8 @@
-title = "nikdoof's gemlog"
+title = "~nikdoof"
 urls = ["gemini://dimension.sh/~nikdoof"]
 
 [feeds]
-"/logs/" = "nikdoof's gemlog"
+"/logs/" = "~nikdoof"
 
 [permalinks]
 "/logs/" = "/logs/{{ .Date.Format `2006/01/02` }}/{{ path.Base .Permalink }}/"
