@@ -2,4 +2,3 @@
 title: nikdoof's capsule
 ---
 
-=> /~nikdoof/logs/ Logs

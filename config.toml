@@ -8,8 +8,9 @@ urls = ["gemini://dimension.sh/~nikdoof"]
 "/logs/" = "/logs/{{ .Date.Format `2006/01/02` }}/{{ path.Base .Permalink }}/"
 
 [[tasks]]
-input = [".gmi"]
+input = [".gmi", ".md"]
 output = ".gmi"
 template = ".gmi"
 static_dir = "static"
 output_dir = "public"
+preprocess.md = "md2gmn"

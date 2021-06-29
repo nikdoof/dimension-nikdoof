@@ -15,4 +15,5 @@ clean:
 .PHONY: build
 build:
 	${HOME}/bin/kiln build
+	mkdir -p $(DESTDIR)/
 	cp -R public/* $(DESTDIR)/

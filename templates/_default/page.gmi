@@ -1,5 +1,6 @@
 # {{ .Title }}
-{{- if not .Date.IsZero }}
-Posted on {{ .Date.Format "2006-01-02" }}{{ end }}
 
 {{ .Content }}
+
+{{- if not .Date.IsZero }}
+Posted on {{ .Date.Format "2006-01-02" }}{{ end }}

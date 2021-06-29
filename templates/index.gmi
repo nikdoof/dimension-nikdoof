@@ -1,7 +1,8 @@
 # {{ .Title }}
 {{ if .Content }}
 {{ .Content }}{{ end }}
-
+{{ range .Dirs }}## {{.Title }}
 {{ range .Pages }}=> /~nikdoof{{ .Permalink }} {{ if not .Date.IsZero -}}
 {{.Date.Format "2006-01-02"}} {{end}}{{.Title}}
+{{ end }}
 {{ end -}}

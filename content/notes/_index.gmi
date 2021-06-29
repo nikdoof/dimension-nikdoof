@@ -1,0 +1,5 @@
+---
+title: Notes
+---
+
+A collection of notes made about various, Gemini-related, tasks and applications.
