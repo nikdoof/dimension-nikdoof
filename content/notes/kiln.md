@@ -32,6 +32,8 @@ Produces
 => /~nikdoof/notes/kiln/ Kiln
 ```
 
+Calls to `.Title` require a `_index.md` to exist with `title` in the frontmatter, otherwise you'll hit an error.
+
 ## Handling Markdown
 
 Adding `preprocess.md` value to your tasks and adding `.md` to the input formats allows you to use Markdown files for generating out Gemini. 
