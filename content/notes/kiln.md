@@ -6,7 +6,7 @@ title: Kiln
 
 ## Documentation
 
-[https://git.sr.ht/~adnano/kiln/tree/master/item/docs/kiln.1.scd](Kiln Man Page)
+[Kiln Man Page](https://git.sr.ht/~adnano/kiln/tree/master/item/docs/kiln.1.scd)
 [Introduction](https://kiln.adnano.co)
 [kiln-discuss mailing list](https://lists.sr.ht/~adnano/kiln-discuss)
 
