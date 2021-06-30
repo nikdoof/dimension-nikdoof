@@ -1,0 +1,66 @@
+#!/usr/bin/env python3.9
+
+# Modified from ew0k's gemcall
+# Requires Python 3.7+
+
+import socket
+import urllib.parse as up
+import ssl
+import sys
+import argparse
+
+up.uses_relative.append("gemini")
+up.uses_netloc.append("gemini")
+
+ANTENNA_PING_URL = 'gemini://warmedal.se/~antenna/submit'
+
+
+def call_gemini(url, cert=None, key=None):
+    parsed = up.urlparse(url).encode('idna')
+
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    context.minimum_version = ssl.TLSVersion.TLSv1_2
+    context.check_hostname = False
+    context.verify_mode = ssl.CERT_NONE
+    if (cert and key):
+        context.load_cert_chain(cert, key)
+
+    sock = socket.create_connection((parsed.hostname, parsed.port or 1965))
+    ssock = context.wrap_socket(sock, server_hostname=parsed.hostname)
+    ssock.sendall((up.urlunparse(parsed).decode('UTF-8')+'\r\n').encode('ascii'))
+    res = ssock.makefile(mode="rb").read().decode('UTF-8')
+
+    # get the first line
+    try:
+        header = res.splitlines()[0]
+        resp_code = int(header.split(' ')[0])
+    except:
+        return False
+    else:
+        if resp_code >= 20 and resp_code < 30:
+            return True
+        else:
+            return False
+
+
+def ping_antenna(url, antenna_url):
+    return call_gemini(f'{antenna_url}?{url}')
+
+
+def main():
+    parser = argparse.ArgumentParser('antenna-ping')
+    parser.add_argument('url', nargs='+', help='URL of the atom feed to send to Antenna')
+    parser.add_argument('--antenna-url', default=ANTENNA_PING_URL)
+
+    args = parser.parse_args()
+
+    for url in args.url:
+        print(f'Sending {url}... ', end='')
+        if ping_antenna(url, antenna_url=args.antenna_url):
+            print('success')
+        else:
+            print('failed')
+
+
+if __name__ == '__main__':
+    sys.exit(main() or 0)

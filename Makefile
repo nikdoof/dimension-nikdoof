@@ -23,4 +23,4 @@ deploy:
 
 .PHONY: notify-antenna
 notify-antenna:
-	tools/gemcall -u gemini://warmedal.se/~antenna/submit?dimension.sh/~nikdoof/logs/atom.xml
+	tools/antenna-ping dimension.sh/~nikdoof/logs/atom.xml
