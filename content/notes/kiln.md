@@ -47,3 +47,12 @@ static_dir = "static"
 output_dir = "public"
 preprocess.md = "md2gmn"
 ```
+
+## Date Format
+
+Kiln uses the standard Go date format:
+
+```
+2021-06-30T22:48:05Z - UTC
+2021-06-30T22:48:05-01:00 - BST (+1) Timezone
+```
