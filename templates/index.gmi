@@ -1,4 +1,3 @@
-# {{ .Title }}
 {{ if .Content }}
 {{ .Content }}{{ end }}
 {{ range .Dirs }}## {{.Title }}

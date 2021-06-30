@@ -3,4 +3,4 @@
 {{ .Content }}
 
 {{- if not .Date.IsZero }}
-Posted on {{ .Date.Format "2006-01-02" }}{{ end }}
+~nikdoof - {{ .Date.Format "2006-01-02 15:04" }}{{ end }}
