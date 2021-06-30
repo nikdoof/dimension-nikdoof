@@ -2,7 +2,7 @@
 DESTDIR=~/public_gemini
 
 .PHONY: all
-all: pull build
+all: pull build deploy notify-antenna
 
 .PHONY: pull
 pull:
@@ -15,5 +15,12 @@ clean:
 .PHONY: build
 build:
 	${HOME}/bin/kiln build
+
+.PHONY: deploy
+deploy:
 	mkdir -p $(DESTDIR)/
 	cp -R public/* $(DESTDIR)/
+
+.PHONY: notify-antenna
+notify-antenna:
+	tools/gemcall -u gemini://warmedal.se/~antenna/submit?dimension.sh/~nikdoof/logs/atom.xml

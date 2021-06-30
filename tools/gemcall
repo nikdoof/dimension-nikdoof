@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+import socket
+import urllib.parse as up
+import ssl
+import sys
+import getopt
+
+
+def printhelp():
+    print('gemcall -u <url> [-c <clientcert> -k <clientkey>]')
+
+
+up.uses_relative.append("gemini")
+up.uses_netloc.append("gemini")
+
+url = ''
+clientcert = ''
+clientkey = ''
+
+try:
+    opts, args = getopt.getopt(sys.argv[1:], "hu:c:k:", ["help", "url=", "clientcert=", "clientkey="])
+except getopt.GetoptError:
+    printhelp()
+    sys.exit(2)
+
+for opt, arg in opts:
+    if opt in ("-h", "--help"):
+        printhelp()
+        sys.exit()
+    elif opt in ("-c", "--clientcert"):
+        clientcert = arg
+    elif opt in ("-k", "--clientkey"):
+        clientkey = arg
+    elif opt in ("-u", "--url"):
+        url = arg
+
+parsed = up.urlparse(url).encode("idna")
+
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+context.minimum_version = ssl.TLSVersion.TLSv1_2
+context.check_hostname = False
+context.verify_mode = ssl.CERT_NONE
+if (clientcert and clientkey):
+    context.load_cert_chain(clientcert, clientkey)
+
+sock = socket.create_connection((parsed.hostname, parsed.port or 1965))
+ssock = context.wrap_socket(sock, server_hostname=parsed.hostname)
+ssock.sendall((up.urlunparse(parsed).decode("UTF-8")+"\r\n").encode("ascii"))
+print(ssock.makefile(mode="rb").read().decode('UTF-8'))
