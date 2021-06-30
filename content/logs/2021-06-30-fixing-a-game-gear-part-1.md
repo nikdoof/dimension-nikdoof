@@ -1,6 +1,6 @@
 ---
 title: Fixing a Game Gear - Part 1
-date: 2021-06-30
+date: 2021-06-30T22:33:00-01:00
 ---
 I have a need to re-live my youth through the purchase of expensive old technology.
 
