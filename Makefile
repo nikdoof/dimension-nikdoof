@@ -6,6 +6,7 @@ all: pull build deploy notify-antenna
 
 .PHONY: pull
 pull:
+	git reset --hard
 	git pull origin
 
 .PHONY: clean
