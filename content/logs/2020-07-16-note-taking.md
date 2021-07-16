@@ -1,6 +1,6 @@
 ---
 title: Note Taking
-date: 2021-07-16
+date: 2021-07-16T09:42:00-01:00
 ---
 
 For some time i've been using [LogSeq](https://logseq.com) as my primary note taking tool, essentially an open source version of [Roam Research](https://roamresearch.com) it quick became a prime choice due to its offline first design. Over the past year it has been my source of reference and a method to store fleeting knowledge in a way I can easily access.
