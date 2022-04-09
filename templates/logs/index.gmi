@@ -1,7 +1,7 @@
 # {{ .Title }}
 {{ if .Content -}}
 {{ .Content }}{{ end }}
-{{ range .Pages }}=> /~nikdoof{{ .Permalink }} {{ if not .Date.IsZero -}}
+{{ range .Pages }}=> /~nikdoof{{ .Path }} {{ if not .Date.IsZero -}}
 {{.Date.Format "2006-01-02"}} {{end}}{{.Title}}
 {{ end }}
-=> /~nikdoof{{ .Permalink }}atom.xml Atom Feed
+=> /~nikdoof{{ .Path }}atom.xml Atom Feed

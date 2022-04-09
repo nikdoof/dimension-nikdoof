@@ -16,7 +16,7 @@ Not described too much in the documentation, but you can use the `.Dirs` value p
 
 ```
 {{ range .Dirs }}## {{.Title }}
-{{ range .Pages }}=>  {{ .Permalink }} {{ if not .Date.IsZero -}}
+{{ range .Pages }}=>  {{ .Path }} {{ if not .Date.IsZero -}}
 {{.Date.Format "2006-01-02"}} {{end}}{{.Title}}
 {{ end }}
 {{ end -}}

@@ -5,7 +5,7 @@ urls = ["gemini://dimension.sh/~nikdoof"]
 "/logs/" = "~nikdoof"
 
 [permalinks]
-"/logs/" = "/logs/{{ .Date.Format `2006/01/02` }}/{{ path.Base .Permalink }}/"
+"/logs/" = "/logs/{{ .Date.Format `2006/01/02` }}/{{ path.Base .Path }}/"
 
 [[tasks]]
 input = [".gmi", ".md"]
