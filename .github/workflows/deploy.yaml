@@ -19,5 +19,5 @@ jobs:
           script: |
             export PATH=~/bin:~/go/bin:$PATH
             umask 022
-            cd ~/src/dimension-nikdoof
+            cd ~/src/dimension-sh-nikdoof-web
             make
